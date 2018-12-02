@@ -1,0 +1,8 @@
+%ul
+  = link_to "/articles/#{article.id}" do
+    %li
+      = article.title
+    %li
+      = article.text.truncate(30, omission: "...続きを見る")
+    %li
+      = article.created_at.to_s(:date)

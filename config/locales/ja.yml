@@ -1,0 +1,7 @@
+ja:
+  enums:
+    article:
+      article_status:
+        active: "公開する"
+        archive: "下書き保存する"
+      activeredord:

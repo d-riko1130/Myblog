@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :destroy]
+
   def index
     @articles = Article.where(status: 1).order("created_at DESC")
   end
@@ -14,11 +16,25 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @article.destroy
+    redirect_to articles_path
   end
 
   private
   def article_params
     params.require(:article).permit(:title, :text, :status)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 end

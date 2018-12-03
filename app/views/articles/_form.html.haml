@@ -1,0 +1,12 @@
+= form_for @article do |f|
+  = f.text_field :title, placeholder: "タイトルだよ"
+  %br
+  = f.text_area :text, placeholder: "本文だよ"
+  %br
+  = f.select :status, Article.article_statuses
+  %br
+  - if action_name == "new"
+    = f.submit "送信するよ"
+  - else
+    = f.submit "更新するよ"
+    = button_to "削除するよ", { action: "destroy", id: @article.id }, method: :delete, data: { confirm: "消す？" }
